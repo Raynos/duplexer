@@ -27,6 +27,6 @@
     }
   ],
   "scripts": {
-    "test": "make node-test"
+    "test": "make test"
   }
 }
