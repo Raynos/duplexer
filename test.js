@@ -24,3 +24,4 @@ readable.emit("data")
 
 assert.equal(written, 1)
 assert.equal(data, 1)
+console.log("DONE")

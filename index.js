@@ -27,6 +27,9 @@ function duplex(writer, reader) {
 
     reader.on("end", handleEnd)
 
+    writer.on("error", reemit)
+    reader.on("error", reemit)
+
     return stream
 
     function getWritable() {
@@ -76,5 +79,9 @@ function duplex(writer, reader) {
         var args = slice.call(arguments)
         args.unshift("end")
         stream.emit.apply(stream, args)
+    }
+
+    function reemit(err) {
+        stream.emit("error", err)
     }
 }
