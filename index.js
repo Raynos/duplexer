@@ -27,6 +27,10 @@ function duplex(writer, reader) {
 
     reader.on("end", handleEnd)
 
+    writer.on("drain", function() {
+      stream.emit("drain")
+    })
+
     writer.on("error", reemit)
     reader.on("error", reemit)
 
