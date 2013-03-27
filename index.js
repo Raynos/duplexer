@@ -10,15 +10,6 @@ function duplex(writer, reader) {
     var stream = new Stream()
         , ended = false
 
-    Object.defineProperties(stream, {
-        writable: {
-            get: getWritable
-        }
-        , readable: {
-            get: getReadable
-        }
-    })
-
     writeMethods.forEach(proxyWriter)
 
     readMethods.forEach(proxyReader)
@@ -34,15 +25,10 @@ function duplex(writer, reader) {
     writer.on("error", reemit)
     reader.on("error", reemit)
 
+    stream.writable = writer.writable
+    stream.readable = reader.readable
+
     return stream
-
-    function getWritable() {
-        return writer.writable
-    }
-
-    function getReadable() {
-        return reader.readable
-    }
 
     function proxyWriter(methodName) {
         stream[methodName] = method
