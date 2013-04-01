@@ -6,15 +6,20 @@ var Stream = require("stream")
 
 module.exports = duplex
 
+function forEach (arr, fn) {
+  if (arr.forEach) return arr.forEach(fn)
+  for (var i = 0; i < arr.length; i++) fn(arr[i], i)
+}
+
 function duplex(writer, reader) {
     var stream = new Stream()
         , ended = false
 
-    writeMethods.forEach(proxyWriter)
+    forEach(writeMethods, proxyWriter)
 
-    readMethods.forEach(proxyReader)
+    forEach(readMethods, proxyReader)
 
-    readEvents.forEach(proxyStream)
+    forEach(readEvents, proxyStream)
 
     reader.on("end", handleEnd)
 
