@@ -16,8 +16,8 @@
     "url": "https://github.com/Raynos/duplexer/issues",
     "email": "raynos2@gmail.com"
   },
-  "dependencies": {},
   "devDependencies": {
+    "tape": "0.3.3",
     "through": "~0.1.4"
   },
   "licenses": [
@@ -27,6 +27,6 @@
     }
   ],
   "scripts": {
-    "test": "make test"
+    "test": "node test/test"
   }
 }
