@@ -1,19 +1,24 @@
 var Stream = require("stream")
-    , writeMethods = ["write", "end", "destroy"]
-    , readMethods = ["resume", "pause"]
-    , readEvents = ["data", "close"]
-    , slice = Array.prototype.slice
+var writeMethods = ["write", "end", "destroy"]
+var readMethods = ["resume", "pause"]
+var readEvents = ["data", "close"]
+var slice = Array.prototype.slice
 
 module.exports = duplex
 
 function forEach (arr, fn) {
-  if (arr.forEach) return arr.forEach(fn)
-  for (var i = 0; i < arr.length; i++) fn(arr[i], i)
+    if (arr.forEach) {
+        return arr.forEach(fn)
+    }
+
+    for (var i = 0; i < arr.length; i++) {
+        fn(arr[i], i)
+    }
 }
 
 function duplex(writer, reader) {
     var stream = new Stream()
-        , ended = false
+    var ended = false
 
     forEach(writeMethods, proxyWriter)
 
