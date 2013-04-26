@@ -22,7 +22,7 @@ It is assumed that the two streams are connected to each other in some way.
 
 ## Tests
 
-`make test`
+`npm test`
 
 ## Contributors
 
