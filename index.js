@@ -11,7 +11,7 @@ function forEach (arr, fn) {
         return arr.forEach(fn)
     }
 
-    for (var i = 0; i < arr.length; i++) {
+    for (var i = 0, x = arr.length; i < x; i++) {
         fn(arr[i], i)
     }
 }
