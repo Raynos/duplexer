@@ -8,9 +8,9 @@ Creates a duplex stream
 
 Taken from [event-stream][7]
 
-## duplex (writeStream, readStream)
+## duplex (readStream, writeStream)
 
-Takes a writable stream and a readable stream and makes them appear as a readable writable stream.
+Takes a readable stream and a writeable stream and makes them appear as a readable writable stream.
 
 It is assumed that the two streams are connected to each other in some way.
 
