@@ -1,3 +1,9 @@
+# DEPRECATED.
+
+Apparently this module is broken and not compatible with more recent versions of nodejs.
+
+Do not use.
+
 # duplexer
 
 [![build status][1]][2] [![dependency status][3]][4]
